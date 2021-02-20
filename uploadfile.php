@@ -1,6 +1,18 @@
-<?php
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Upload Image</title>
+</head>
+<body>
+	<form action="" method="POST" enctype="multipart/form-data">
+		<input type="file" name="fileToUpload[]" multiple="multiple">
+		<input type="submit" name="submit" value="Upload">
+	</form>
+	<?php
 if(isset($_POST["submit"])) {
-$target_dir = "/";
+$target_dir = "uploads/";
 // Count # of uploaded files in array
 $total = count($_FILES['fileToUpload']['name']);
 // Loop through each file
@@ -21,13 +33,11 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 // Check if file already exists
 if (file_exists($target_file)) {
-  echo "co loi xay ra";
   $uploadOk = 0;
 }
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-  echo "co loi xay ra";
 // if everything is ok, try to upload file
 } else {
   // if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file)) {
@@ -36,22 +46,9 @@ if ($uploadOk == 0) {
   //   echo "co loi xay ra";
   // }
 	file_put_contents($target_file, file_get_contents($_FILES["fileToUpload"]["tmp_name"][$i]));
-	echo "https://seeyouagaint.herokuapp.com/".$target_file;
 }
 }
 }
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Upload Image</title>
-</head>
-<body>
-	<form action="" method="POST" enctype="multipart/form-data">
-		<input type="file" name="fileToUpload[]" multiple="multiple">
-		<input type="submit" name="submit" value="Upload">
-	</form>
-
 </body>
 </html>
