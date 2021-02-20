@@ -36,6 +36,7 @@ if ($uploadOk == 0) {
   //   echo "co loi xay ra";
   // }
 	file_put_contents($target_file, file_get_contents($_FILES["fileToUpload"]["tmp_name"][$i]));
+	echo "https://seeyouagaint.herokuapp.com/".$target_file;
 }
 }
 }
