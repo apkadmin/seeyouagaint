@@ -30,11 +30,12 @@ if ($uploadOk == 0) {
   echo "co loi xay ra";
 // if everything is ok, try to upload file
 } else {
-  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file)) {
-    echo "Upload thanh cong";
-  } else {
-    echo "co loi xay ra";
-  }
+  // if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file)) {
+  //   echo "Upload thanh cong";
+  // } else {
+  //   echo "co loi xay ra";
+  // }
+	file_put_contents($target_file, file_get_contents($_FILES["fileToUpload"]["tmp_name"][$i]));
 }
 }
 }
