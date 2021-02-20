@@ -1,11 +1,11 @@
 <?php
 if(isset($_POST["submit"])) {
-$target_dir = "uploads/";
+$target_dir = "/";
 // Count # of uploaded files in array
 $total = count($_FILES['fileToUpload']['name']);
 // Loop through each file
 for( $i=0 ; $i < $total ; $i++ ) {
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"][$i]);
+$target_file = basename($_FILES["fileToUpload"]["name"][$i]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
